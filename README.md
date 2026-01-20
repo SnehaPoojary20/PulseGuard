@@ -76,39 +76,39 @@ Docker / Docker Compose
 
 ## How It Works 
 
-API server extracts a rate-limit key (user / IP / endpoint)
+- API server extracts a rate-limit key (user / IP / endpoint)
 
-Server invokes a Redis Lua script
+- Server invokes a Redis Lua script
 
-The script:
+- The script:
 
-Reads current and previous window counters
+* Reads current and previous window counters
 
-Computes the weighted request count
+* Computes the weighted request count
 
-Atomically increments the current window
+* Atomically increments the current window
+  
+* Returns ALLOW or DENY
 
-Returns ALLOW or DENY
+* The API server enforces the decision
 
-The API server enforces the decision
+* Failure Handling
 
-Failure Handling
+* Redis timeouts trigger a configurable fallback strategy
 
-Redis timeouts trigger a configurable fallback strategy
+* TTL-based key expiration prevents memory leaks
 
-TTL-based key expiration prevents memory leaks
+* Redis server time is used to avoid clock skew across nodes
 
-Redis server time is used to avoid clock skew across nodes
+## Observability
 
-Observability
+- PulseGuard exposes operational insights including:
 
-PulseGuard exposes operational insights including:
+- Allowed vs rejected request counts
 
-Allowed vs rejected request counts
+- Redis latency metrics
 
-Redis latency metrics
-
-Top offending users / IPs
+- Top offending users / IPs
 
 These metrics can be exported to monitoring systems such as Prometheus.
 
@@ -133,7 +133,7 @@ Redis Cluster support
 
 Adaptive rate limits based on historical traffic
 
-Author
+## Author
 
 Sneha Poojary
 Backend / Distributed Systems Enthusiast
