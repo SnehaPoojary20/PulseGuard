@@ -74,7 +74,7 @@ Lua (atomic scripts)
 
 Docker / Docker Compose
 
-## How It Works (High Level)
+## How It Works 
 
 API server extracts a rate-limit key (user / IP / endpoint)
 
