@@ -34,6 +34,8 @@ public class AppConfig {
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory());
+        template.setKeySerializer(template.getStringSerializer());
+        template.setValueSerializer(template.getValueSerializer());
         return template;
     }
 }
