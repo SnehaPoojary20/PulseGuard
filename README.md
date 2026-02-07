@@ -12,7 +12,7 @@ PulseGuard is a cloud-native, distributed rate-limiting engine designed to prote
   
 2. Sliding Window Counter AlgorithmFixed-window algorithms allow double the allowed traffic at the "window edge".
  - The Solution: PulseGuard calculates a weighted request count based on the current and previous time segments:
-    $$\text{count} = \text{current\_window} + (\text{previous\_window} \times \text{overlap\_ratio})$$
+     $$\text{count} = \text{current\_window} + (\text{previous\_window} \times \text{overlap\_ratio})$$
  - Engineering Impact: This results in smooth traffic shaping and eliminates the "bursting" issue common in standard industry implementations.
   
 3. Observability & Reliability Stack
